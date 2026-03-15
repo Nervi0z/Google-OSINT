@@ -1,46 +1,48 @@
-# 1. Introducción y Ética en OSINT con Google
+# 1 — Introduction & Ethics
 
-¡Bienvenido/a a la guía de OSINT con Google! Antes de sumergirnos en las técnicas y herramientas, es fundamental entender qué es OSINT y, sobre todo, cómo practicarlo de manera responsable.
+## What is OSINT
 
-## 🤔 ¿Qué es OSINT?
+Open Source Intelligence (OSINT) is the collection and analysis of information from publicly available sources. No hacking, no exploits, no unauthorized access — just systematic use of what's already out there.
 
-* **OSINT** son las siglas de **Open Source Intelligence** (Inteligencia de Fuentes Abiertas).
-* Se refiere al proceso de recopilar y analizar información de **fuentes públicas y accesibles** para producir inteligencia útil.
-* Estas fuentes pueden ser: sitios web, redes sociales, bases de datos públicas, medios de comunicación, publicaciones académicas, mapas, etc.
-* Es una disciplina utilizada en muchos campos: ciberseguridad, periodismo de investigación, análisis de competencia, cumplimiento normativo, etc.
+Google is central to OSINT because it indexes an enormous fraction of the public web and provides a query language (operators) that lets you filter results with surgical precision. Combined with its ancillary services — Maps, Images, Scholar, Patents, Trends, Alerts — it covers reconnaissance scenarios that would otherwise require specialized tools.
 
-## 🚀 ¿Por Qué Usar Google para OSINT?
+## Why Google specifically
 
-* **Ubicuidad:** Google indexa una porción masiva de la web pública.
-* **Potencia:** Sus operadores de búsqueda avanzada (que veremos en detalle) permiten filtrar y encontrar información muy específica ("Google Dorking").
-* **Servicios Complementarios:** Más allá del buscador, Google ofrece Maps, Images, Scholar, Trends, Alerts, etc., que son herramientas OSINT muy valiosas por sí mismas.
-* **Accesibilidad:** Es una herramienta gratuita y universalmente conocida.
+- Largest index of publicly accessible content on the web
+- Operator syntax powerful enough to surface files, directories, and pages that were never intended to be findable
+- Services covering geospatial, academic, temporal, and media intelligence
+- Free, no account required for basic use, API available for automation
 
-## ⚖️ ¡IMPRESCINDIBLE! Consideraciones Éticas y Legales
+## Legitimate use cases
 
-Este es el apartado **más importante** de todo el tutorial. Usar técnicas OSINT conlleva una gran responsabilidad.
+- **Defensive reconnaissance:** Map your own organization's public exposure before attackers do
+- **Threat intelligence:** Track threat actors, campaigns, and TTPs surfacing in public reporting
+- **Investigations:** Verify claims, locate sources, build profiles from public records
+- **Journalism and research:** Find primary sources, government documents, academic publications
+- **Due diligence:** Background research on companies, individuals, and events
 
-* **Legalidad:**
-    * **Respeta la Ley:** Infórmate sobre las leyes de privacidad y protección de datos de tu país y de donde residan los sujetos de tu investigación (ej: GDPR en Europa).
-    * **Acceso Autorizado:** OSINT se basa en fuentes *abiertas*. **Nunca** intentes acceder a sistemas, cuentas o información privada sin autorización explícita. Eso **NO** es OSINT, es ilegal.
-    * **Términos de Servicio (ToS):** Respeta los términos de servicio de Google y otras plataformas que utilices. El scraping masivo o automatizado puede violarlos.
-* **Ética:**
-    * **Intención:** ¿Para qué estás recopilando esta información? Asegúrate de tener un propósito legítimo y ético.
-    * **Privacidad:** Sé consciente del impacto que tu investigación puede tener en la privacidad de las personas. Evita el doxing (publicar información privada de alguien), el acoso o la intimidación.
-    * **Precisión:** Verifica la información obtenida de múltiples fuentes antes de considerarla fiable. La desinformación es un riesgo.
-    * **Almacenamiento Seguro:** Si almacenas datos personales recopilados, hazlo de forma segura y cumple con las regulaciones aplicables.
-* **Responsabilidad:**
-    * Eres responsable del uso que le des a la información encontrada.
-    * Este tutorial tiene fines **exclusivamente educativos**, para entender las capacidades de búsqueda en fuentes abiertas y cómo proteger la propia información.
+## Legal and ethical boundaries
 
-> 🚫 **Recordatorio:** El uso indebido de estas técnicas para actividades ilegales o poco éticas va en contra del propósito de este repositorio y puede tener consecuencias legales serias.
+**What is always acceptable:**
+- Searching for information about your own organization
+- Authorized penetration testing engagements (with written scope)
+- Academic and journalistic research on public figures and organizations
+- Verifying publicly shared content
 
-## 🧭 ¿Cómo Usar Este Tutorial?
+**What requires careful consideration:**
+- Research on private individuals — even publicly available personal data may be subject to GDPR, CCPA, or equivalent legislation depending on jurisdiction and purpose
+- Automated querying — mass-automated dork queries violate Google's Terms of Service
+- Aggregation — combining individually innocuous public data points into a detailed profile of a private person can cross legal and ethical lines even if each piece was public
 
-Ahora que hemos sentado las bases, los siguientes módulos te guiarán a través de las herramientas y técnicas:
+**What is never acceptable:**
+- Using OSINT findings to access systems without authorization
+- Targeting private individuals for harassment, stalking, or harm
+- Publishing sensitive information found through OSINT without legal justification
 
-1.  **Operadores de Búsqueda:** Aprenderás los comandos clave de Google Dorking.
-2.  **Servicios de Google:** Exploraremos Maps, Images, Scholar, etc.
-3.  **Escenarios Prácticos:** Veremos ejemplos de cómo aplicar todo junto.
+## Practical rule
 
-¡Empecemos!
+Before running a query, ask: would I be comfortable explaining to a lawyer or employer what I was looking for and why? If yes, proceed. If not, reconsider.
+
+---
+
+Continue to [2 — Google Operators & Dorking](2_Google_Operators_Dorking.md)

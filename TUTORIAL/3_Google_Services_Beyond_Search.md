@@ -1,78 +1,145 @@
-# 3. Más Allá del Buscador: Otros Servicios de Google para OSINT
+# 3 — Google Services Beyond Search
 
-Si bien el buscador de Google y sus operadores son fundamentales, el ecosistema de Google ofrece muchas otras herramientas poderosas para la Inteligencia de Fuentes Abiertas (OSINT). Estas herramientas nos permiten explorar diferentes tipos de datos y obtener perspectivas únicas.
+The main search engine is one piece. Google's ecosystem covers geospatial intelligence, academic research, patent analysis, temporal trend data, and passive monitoring — each with distinct OSINT applications.
 
-## 📸 Google Images
+## Google Images — Reverse Image Search
 
-Google Images no es solo para encontrar fotos bonitas. Es una herramienta OSINT potente para:
+Go to [images.google.com](https://images.google.com) and click the camera icon. Upload a file or paste a URL.
 
-* **Búsqueda Inversa de Imágenes:**
-    * Puedes subir una imagen desde tu dispositivo o pegar la URL de una imagen online.
-    * Google buscará dónde más aparece esa imagen (o imágenes visualmente similares) en la web.
-    * **Utilidad OSINT:** Verificar la autenticidad de una foto, encontrar la fuente original, identificar personas o lugares, descubrir perfiles asociados a una imagen.
-    * **Cómo:** Ve a [images.google.com](https://images.google.com) y haz clic en el icono de la cámara (Buscar por imagen).
-* **Búsqueda por Palabras Clave:** Útil para encontrar imágenes relacionadas con un sujeto, lugar o evento. Usa filtros (tamaño, color, tipo, fecha, derechos de uso) para refinar.
-* **Metadatos EXIF:** Las fotos digitales pueden contener datos ocultos (fecha, hora, modelo de cámara, a veces coordenadas GPS). Google a menudo elimina los EXIF de las imágenes que indexa, pero la fuente original donde encuentres la imagen podría conservarlos. Vale la pena descargar la imagen original y usar una herramienta externa para revisar sus metadatos EXIF.
+**What it tells you:**
+- Where else the image appears on the web
+- Earlier versions of the same image (useful for detecting manipulated or reused photos)
+- Visually similar images that may provide context
+- Sites that have republished the image
 
-## 🗺️ Google Maps y Street View
+**OSINT workflow for image verification:**
+1. Reverse search the image
+2. Check if results include credible news sources
+3. Look for the oldest indexed version — if a "breaking news" image predates the event, it's recycled
+4. Download the earliest version and extract EXIF data: `exiftool image.jpg`
+5. Use visual landmarks (buildings, signs, vegetation, vehicles) to cross-reference with Maps
 
-Una mina de oro para la inteligencia geoespacial (GEOINT) y OSINT basado en localización.
+EXIF data often gets stripped when images are uploaded to social media, but the original source may retain it.
 
-* **Geocodificación:** Busca direcciones, lugares, coordenadas geográficas.
-* **Geocodificación Inversa:** Haz clic derecho en un punto del mapa para obtener las coordenadas o la dirección más cercana.
-* **Street View:** Explora lugares a nivel de calle.
-    * **Utilidad OSINT:** Reconocimiento visual de edificios o áreas, verificar direcciones físicas, analizar el entorno, identificar puntos de referencia. Fíjate en la fecha de la imagen de Street View (suele aparecer en la parte inferior).
-* **Imágenes Satelitales/Terreno:** Vista aérea para análisis de infraestructuras, cambios en el paisaje. Considera usar Google Earth Pro (gratuito para escritorio) para acceder a imágenes históricas.
-* **Búsqueda de Negocios/Lugares:** Encuentra información sobre empresas, horarios, fotos, reseñas.
-* **Reseñas y Fotos de Usuarios:** Las reseñas y fotos subidas por usuarios pueden contener detalles OSINT inesperados sobre un lugar, evento o las personas que lo frecuentan.
+## Google Maps and Street View
 
-## 🎓 Google Scholar (Académico)
+**Geocoding:** Search any address, place name, or coordinate pair (`40.4168, -3.7038`).
 
-Enfocado en literatura académica.
+**Reverse geocoding:** Right-click any map point to get coordinates or the nearest address.
 
-* **Utilidad OSINT:** Encontrar investigaciones sobre un tema específico, identificar expertos en un campo, rastrear publicaciones de un autor o institución, encontrar patentes relacionadas (aunque Google Patents es más específico).
-* **Cómo:** Busca en [scholar.google.com](https://scholar.google.com). Usa operadores similares al buscador principal (`author:`, `""`, etc.).
+**Street View:** Ground-level imagery for physical reconnaissance. Check the capture date (bottom-left) — Google updates coverage irregularly, so some areas are years old.
 
-## 📜 Google Patents
+**Historical imagery:** In Google Earth Pro (free desktop download), use the clock icon to view satellite imagery from different dates at the same location. Useful for tracking construction, infrastructure changes, or vehicle presence over time.
 
-Base de datos específica para buscar patentes registradas.
+**OSINT applications:**
+- Verify a business address before a field investigation
+- Assess physical security of a facility from public imagery
+- Confirm a location claimed in an image by matching visual features
+- Track changes to a site over time using historical satellite imagery
+- Identify building entrances, camera positions, and vehicle access points
 
-* **Utilidad OSINT:** Inteligencia competitiva (ver qué están patentando otras empresas), investigación tecnológica, encontrar inventores o empresas relacionadas con una tecnología.
-* **Cómo:** Busca en [patents.google.com](https://patents.google.com).
+## Google Scholar — [scholar.google.com](https://scholar.google.com)
 
-## 📈 Google Trends
+Academic paper search. Uses similar operator syntax to the main search engine.
 
-Analiza la popularidad de términos de búsqueda a lo largo del tiempo y por región geográfica.
+```
+# Papers by a specific author
+author:"Bruce Schneier"
 
-* **Utilidad OSINT:** Medir el interés público en un tema, persona o evento; comparar la popularidad de diferentes términos; identificar tendencias emergentes o picos de interés relacionados con noticias; detectar interés regional en ciertos temas.
-* **Cómo:** Explora en [trends.google.com](https://trends.google.com).
+# Papers from a specific institution
+"MIT" "machine learning" site:scholar.google.com
 
-## 🔔 Google Alerts
+# Papers citing a specific work
+cites:[article ID from Scholar URL]
+```
 
-Configura monitorización pasiva para recibir notificaciones cuando aparezca nuevo contenido en la web que coincida con tus términos de búsqueda.
+**OSINT applications:**
+- Build profiles of technical experts and researchers
+- Map institutional affiliations
+- Identify co-authors and research networks
+- Find pre-publication versions of papers
 
-* **Utilidad OSINT:** Vigilancia continua de marcas, personas, temas; detección temprana de noticias o publicaciones relevantes; OSINT pasivo (la información te llega a ti).
-* **Cómo:** Configura alertas en [google.com/alerts](https://google.com/alerts). Puedes usar operadores de búsqueda en tus consultas de alerta. Recibirás notificaciones por email o RSS.
+## Google Patents — [patents.google.com](https://patents.google.com)
 
-## 🎬 YouTube (Propiedad de Google)
+Full-text patent search with inventor, assignee, and date filters.
 
-La plataforma de vídeo más grande del mundo es una fuente OSINT enorme.
+```
+# Patents by a company
+assignee:"Palo Alto Networks"
 
-* **Búsqueda Avanzada:** Usa filtros (fecha de subida, tipo, duración, características como "En directo" o "Subtítulos").
-* **Análisis de Canales:** Investiga quién está detrás de un canal, qué tipo de contenido publica, su audiencia (comentarios, suscriptores).
-* **Comentarios:** Pueden revelar opiniones, información adicional, identidades de usuarios (a veces).
-* **Transcripciones:** Muchos vídeos tienen transcripciones automáticas. Puedes buscar palabras clave dentro del contenido hablado del vídeo.
-* **Geolocalización (A veces):** Algunos vídeos pueden contener pistas visuales o descripciones que ayudan a identificar dónde fueron grabados.
+# Patents by an inventor
+inventor:"John Smith" assignee:"Company Name"
 
-## (Opcional) Otros Servicios Útiles
+# Patents on a technology
+"neural network" "intrusion detection" before:2020
+```
 
-* **Google Translate:** Imprescindible para investigar fuentes en otros idiomas.
-* **Google Drive/Docs/Sheets/etc.:** A veces, documentos públicos se indexan. Puedes usar `site:drive.google.com` o `site:docs.google.com` junto con otros dorks (con precaución ética).
-* **Google Finance:** Para información financiera básica de empresas públicas.
+**OSINT applications:**
+- Map a company's R&D direction and technology priorities
+- Identify key engineers and researchers by name
+- Trace relationships between companies through shared inventors or cross-licensing
+- Find technical details on proprietary systems described in patents
 
-## Conclusión
+## Google Trends — [trends.google.com](https://trends.google.com)
 
-No te limites solo al buscador principal. Explorar y combinar la información obtenida de estos diferentes servicios de Google te dará una visión OSINT mucho más completa y rica. Cada herramienta ofrece una pieza diferente del rompecabezas.
+Relative search interest for terms over time and by geography.
+
+**OSINT applications:**
+- Verify when public interest in a topic or person spiked (correlate with events)
+- Compare brand recognition across regions
+- Detect emerging topics before they appear in mainstream news
+- Track search interest around a specific incident or disclosure
+
+Trends shows relative popularity, not absolute volume. Use it for comparison and timing, not absolute measurement.
+
+## Google Alerts — [google.com/alerts](https://google.com/alerts)
+
+Passive monitoring — receive email or RSS notifications when new content matching a query gets indexed.
+
+Supports the same operator syntax as search:
+
+```
+# Monitor mentions of an organization
+"Company Name" -site:company.com
+
+# Monitor for credential leaks
+"Company Name" password | credential | "api key"
+
+# Monitor a person in news
+"First Last" CEO | "chief executive" site:reuters.com | site:ft.com
+
+# Monitor new files about a topic
+"topic keyword" filetype:pdf
+```
+
+**Setup:** Go to google.com/alerts, enter your query, choose frequency (as-it-happens, daily, weekly), and delivery method (email or RSS).
+
+Alerts are passive — content must be newly indexed to trigger. They won't catch existing content and may miss content on sites Google indexes infrequently.
+
+## YouTube
+
+Owned by Google. Searchable with standard operators from the main search engine.
+
+```
+# Find videos mentioning a term in title
+intitle:"Company Name" site:youtube.com
+
+# Combine with date filters in Google Search Tools
+site:youtube.com "topic" after:2024-01-01
+```
+
+**Within YouTube itself:**
+- Use the Filters panel to sort by upload date, duration, and type
+- Auto-generated transcripts are searchable — click the `...` menu on a video and select "Show transcript"
+- Check video descriptions and comments for additional context, links, and usernames
+- Pinned comments and community posts on channels often contain additional information
+
+**Geolocation from video content:**
+1. Pause on frames with visible buildings, signs, or infrastructure
+2. Cross-reference with Google Maps satellite and Street View
+3. Check the video description for location tags
+4. Use the video's upload metadata as a temporal anchor
 
 ---
-*En el último módulo, veremos cómo juntar todo esto en escenarios prácticos y una hoja de referencia rápida.*
+
+Continue to [4 — Practical Scenarios & Cheatsheet](4_Practical_Scenarios_Cheatsheet.md)

@@ -1,129 +1,254 @@
-<p align="center">
-  <img src="assets/google.jpg" alt="Google Logo Banner" width="450"/> </p>
-
---- 
-<p align="center">
-  <h1>✨ Google-Osint ✨</h1>
-</p>
-
-<p align="center"> <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License Badge"/></a> <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="Contributions Welcome Badge"/></a>
-  <img src="https://img.shields.io/badge/Status-En%20Desarrollo-orange" alt="Project Status"/>
-  </p>
-
----
- Una guía **completa y práctica** para dominar **OSINT (Open Source Intelligence)** utilizando **Google** y sus servicios. Incluye tutoriales paso a paso 📚, técnicas avanzadas 🚀, ejemplos prácticos 💡 y consideraciones éticas cruciales ⚖️.
-
-## 🤔 ¿Por Qué Este Repositorio?
-
-Este repositorio busca ser un recurso **centralizado y fácil de seguir** para aprender y aplicar técnicas OSINT basadas en Google. Desde operadores de búsqueda básicos hasta el uso avanzado de servicios como Google Maps o Images, encontrarás información estructurada y ejemplos claros. El objetivo es proporcionar un **"mega tutorial"** de forma consolidada y accesible.
+<div align="center">
+  <img src="./assets/img/header.svg" alt="google-osint" width="100%"/>
+</div>
 
 ---
 
-## 📂 Estructura del Repositorio
+Practical guide to OSINT using Google and its ecosystem. Covers search operators, Google Dorking, reverse image search, geospatial intelligence via Maps and Street View, academic and patent research, and passive monitoring with Alerts.
 
-Aquí tienes una vista general de cómo está organizado el contenido:
+Built for SOC analysts, threat intelligence researchers, investigators, and anyone who needs to find information efficiently using publicly available sources.
 
-<table>
-  <thead>
-    <tr>
-      <th align="left">Archivo / Carpeta</th>
-      <th align="left">Descripción</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>📁 <strong>TUTORIAL/</strong></td>
-      <td>Carpeta principal con los módulos del tutorial.</td>
-    </tr>
-    <tr>
-      <td>&nbsp;&nbsp;📄 <a href="TUTORIAL/1_Introduction_Ethics.md">1_Introduction_Ethics.md</a></td>
-      <td>Introducción y consideraciones éticas (¡Leer primero!).</td>
-    </tr>
-    <tr>
-      <td>&nbsp;&nbsp;📄 <a href="TUTORIAL/2_Google_Operators_Dorking.md">2_Google_Operators_Dorking.md</a></td>
-      <td>Guía completa de operadores y Google Dorking.</td>
-    </tr>
-    <tr>
-      <td>&nbsp;&nbsp;📄 <a href="TUTORIAL/3_Google_Services_Beyond_Search.md">3_Google_Services_Beyond_Search.md</a></td>
-      <td>Uso de otros servicios de Google para OSINT.</td>
-    </tr>
-    <tr>
-      <td>&nbsp;&nbsp;📄 <a href="TUTORIAL/4_Practical_Scenarios_Cheatsheet.md">4_Practical_Scenarios_Cheatsheet.md</a></td>
-      <td>Ejemplos prácticos y hoja de referencia rápida (Cheat Sheet).</td>
-    </tr>
-    <tr>
-      <td colspan="2">&nbsp;</td> </tr>
-    <tr>
-      <td>🖼️ <strong>images/</strong></td>
-      <td>Imágenes y diagramas utilizados en el tutorial (si aplica).</td>
-    </tr>
-     <tr>
-      <td>🖼️ <strong>assets/</strong></td>
-      <td>Recursos gráficos como el banner.</td>
-    </tr>
-    <tr>
-      <td>🤝 <strong><a href="CONTRIBUTING.md">CONTRIBUTING.md</a></strong></td>
-      <td>Cómo puedes contribuir al proyecto.</td>
-    </tr>
-    <tr>
-      <td>📜 <strong><a href="LICENSE">LICENSE</a></strong></td>
-      <td>Licencia de uso del contenido (MIT por defecto).</td>
-    </tr>
-    <tr>
-      <td>⭐ <strong><a href="README.md">README.md</a></strong></td>
-      <td>Este archivo de presentación principal.</td>
-    </tr>
-  </tbody>
-</table>
-
-*(Se recomienda leer los archivos dentro de `TUTORIAL/` en orden numérico para una comprensión progresiva.)*
+> All techniques described here apply to publicly accessible information. Use them responsibly, ethically, and within applicable law. This repository is for defensive and educational use.
 
 ---
 
-## 📖 Resumen del Contenido del Tutorial <details>
-<summary>Haz clic aquí para ver el detalle del contenido del tutorial</summary>
+## Contents
 
-* **[📄 1_Introduction_Ethics.md](TUTORIAL/1_Introduction_Ethics.md):**
-    * ¿Qué es OSINT y por qué Google es clave? 🔑
-    * **Consideraciones éticas y legales fundamentales.** (¡Lectura obligatoria! ⚖️)
-* **[📄 2_Google_Operators_Dorking.md](TUTORIAL/2_Google_Operators_Dorking.md):**
-    * La guía definitiva de los operadores de búsqueda de Google (`site:`, `filetype:`, `inurl:`, `intitle:`, `related:`, `cache:`, booleanos, `""`, `*`, rangos, fechas, etc.). 🔎
-    * Cómo combinar operadores para búsquedas precisas (Google Dorking). ✨
-    * Técnicas para encontrar información específica (documentos 📄, usuarios 👤, directorios 📁, etc.).
-* **[📄 3_Google_Services_Beyond_Search.md](TUTORIAL/3_Google_Services_Beyond_Search.md):**
-    * Uso de Google Images (búsqueda inversa 📸, análisis).
-    * Google Maps y Street View para geolocalización 🗺️ e inteligencia de localización.
-    * Google Scholar y Patents para investigación académica/técnica 🎓.
-    * Google Trends para análisis de interés público 📈.
-    * Google Alerts para monitorización 🔔.
-    * YouTube como fuente de información 🎬.
-* **[📄 4_Practical_Scenarios_Cheatsheet.md](TUTORIAL/4_Practical_Scenarios_Cheatsheet.md):**
-    * Ejemplos prácticos aplicando las técnicas aprendidas (ej: investigar una empresa 🏢, validar una noticia 📰, encontrar un documento 📎).
-    * Una "Cheat Sheet" o chuleta 📌 con los dorks más útiles para referencia rápida.
-
-</details>
+- [Quick Reference — Operators](#quick-reference--operators)
+- [Tutorial Modules](#tutorial-modules)
+- [Dork Cheatsheet](#dork-cheatsheet)
+- [Practical Scenarios](#practical-scenarios)
+- [Google Services Beyond Search](#google-services-beyond-search)
+- [Ethics and Legal Boundaries](#ethics-and-legal-boundaries)
+- [Contributing](#contributing)
 
 ---
 
-## ⚠️ ¡IMPORTANTE! Ética y Legalidad
+## Quick Reference — Operators
 
-Las técnicas descritas aquí son **poderosas**. Su uso debe ser **responsable, ético y estrictamente legal**.
-> 🚫 El acceso no autorizado a información privada, sistemas informáticos o la violación de la privacidad es **ilegal** y **éticamente incorrecto**.
-Este repositorio tiene **fines educativos**: comprender la información públicamente accesible y cómo proteger la propia.
-**El autor/los contribuidores no se hacen responsables del mal uso de esta información.**
+The building blocks. Combine these to build precise queries.
+
+| Operator | What it does | Example |
+|----------|-------------|---------|
+| `site:domain.com` | Restrict results to a specific domain | `site:gov.uk filetype:pdf` |
+| `filetype:ext` / `ext:` | Find specific file types | `filetype:xlsx "budget 2024"` |
+| `"exact phrase"` | Match a literal string | `"internal use only"` |
+| `-term` | Exclude results containing a term | `jaguar speed -car` |
+| `*` | Wildcard for unknown words in a phrase | `"the * most wanted"` |
+| `OR` / `\|` | Either term A or term B | `CEO OR "chief executive"` |
+| `intitle:term` | Term must appear in the page title | `intitle:"index of /"` |
+| `inurl:term` | Term must appear in the URL | `inurl:admin inurl:login` |
+| `intext:term` | Term must appear in the page body | `intext:"db_password"` |
+| `related:url` | Find sites similar to a given URL | `related:reuters.com` |
+| `cache:url` | Show Google's cached version of a page | `cache:example.com/page` |
+| `allintitle:` | All words must appear in title | `allintitle:admin panel login` |
+| `allinurl:` | All words must appear in URL | `allinurl:wp-admin upload` |
 
 ---
 
-## 🤝 Cómo Contribuir
+## Tutorial Modules
 
-¡Las contribuciones son bienvenidas! Si deseas corregir errores, añadir ejemplos o mejorar el contenido, por favor lee nuestra [**Guía de Contribución (CONTRIBUTING.md)**](CONTRIBUTING.md).
+Read in order for a structured progression. Each module builds on the previous one.
+
+| Module | Content |
+|--------|---------|
+| [1 — Introduction & Ethics](TUTORIAL/1_Introduction_Ethics.md) | What OSINT is, why Google is central, legal and ethical foundations |
+| [2 — Google Operators & Dorking](TUTORIAL/2_Google_Operators_Dorking.md) | Complete operator reference, combining operators, advanced dorking techniques |
+| [3 — Google Services Beyond Search](TUTORIAL/3_Google_Services_Beyond_Search.md) | Images, Maps, Street View, Scholar, Patents, Trends, Alerts, YouTube |
+| [4 — Practical Scenarios & Cheatsheet](TUTORIAL/4_Practical_Scenarios_Cheatsheet.md) | Applied workflows for real investigation tasks, quick reference sheet |
 
 ---
 
-## 📜 Licencia
+## Dork Cheatsheet
 
-Este proyecto se distribuye bajo la [**Licencia MIT**](LICENSE). ---
+Ready-to-use dorks for common OSINT tasks. Replace bracketed values with your targets.
 
-<p align="center">
-  Creado con ❤️ y ☕ por Nervi0zz0 | 2025
-</p>
+**Exposed files and directories**
+```
+intitle:"index of /" "parent directory"
+intitle:"index of /" + "server at"
+intitle:"index of" inurl:ftp
+site:[target.com] intitle:"index of /"
+```
+
+**Sensitive documents**
+```
+site:[target.com] filetype:pdf "confidential" | "internal use only"
+site:[target.com] filetype:xlsx | filetype:csv "password" | "credentials"
+site:[target.com] ext:sql | ext:bak | ext:config
+site:[target.com] filetype:pdf "not for distribution"
+```
+
+**Login and admin panels**
+```
+site:[target.com] intitle:"login" | intitle:"sign in" | inurl:admin
+site:[target.com] inurl:wp-admin | inurl:wp-login
+site:[target.com] inurl:"/admin/login" | inurl:"/administrator"
+intitle:"phpMyAdmin" inurl:"/phpmyadmin/"
+```
+
+**Exposed credentials and configuration**
+```
+site:[target.com] filetype:env | filetype:cfg | filetype:conf
+site:[target.com] intext:"password" filetype:log
+filetype:sql intext:"INSERT INTO" intext:"password"
+site:pastebin.com "[target.com]" password | credential | key
+```
+
+**Employee and organizational intelligence**
+```
+site:linkedin.com/in "[Company Name]"
+site:linkedin.com/in "[Company Name]" "engineer" | "analyst" | "developer"
+"[Company Name]" filetype:pdf "org chart" | "organization chart"
+site:[target.com] "email" "@[target.com]" filetype:pdf | filetype:docx
+```
+
+**Subdomain and infrastructure discovery**
+```
+site:*.target.com -www
+inurl:*.target.com filetype:pdf
+site:target.com -site:www.target.com
+```
+
+**Cached and archived content**
+```
+cache:[target.com]/removed-page
+site:web.archive.org "[target.com]"
+```
+
+**Government and academic sources**
+```
+site:gov.es | site:gob.es filetype:pdf "informe" | "estudio" 2024
+site:*.edu filetype:pdf "research" "[topic]"
+site:gov.uk filetype:pdf "[topic]" "restricted"
+```
+
+---
+
+## Practical Scenarios
+
+**Scenario 1 — Company profiling**
+
+Build a public intelligence picture of a target organization.
+
+```
+# Step 1: map indexed content
+site:company.com
+
+# Step 2: find public documents
+site:company.com filetype:pdf | filetype:pptx | filetype:docx
+
+# Step 3: press and news mentions
+"Company Name" site:reuters.com | site:bloomberg.com | site:ft.com
+
+# Step 4: employee enumeration (public profiles only)
+site:linkedin.com/in "Company Name"
+site:linkedin.com/in "Company Name" "security" | "IT" | "engineer"
+
+# Step 5: patents and R&D
+site:patents.google.com "Company Name"
+intitle:"Company Name" site:patents.google.com
+
+# Step 6: job postings (reveal tech stack)
+site:linkedin.com/jobs "Company Name"
+"Company Name" site:indeed.com | site:glassdoor.com "software engineer"
+```
+
+**Scenario 2 — Image verification**
+
+Determine if an image is authentic and find its original source.
+
+```
+1. Upload the image to images.google.com (camera icon)
+2. Check if it appears on credible news sources
+3. Look for earlier versions of the same image
+4. Extract visual clues: buildings, signs, vehicles, vegetation
+5. Cross-reference with Google Maps Street View to confirm location
+6. Download the earliest version and check EXIF data with ExifTool
+```
+
+**Scenario 3 — Document hunting on government domains**
+
+```
+site:gob.es filetype:pdf "energías renovables" "informe" 2024
+site:gob.es filetype:pdf "ciberseguridad" "estrategia nacional"
+site:defense.gov filetype:pdf "strategy" | "assessment" 2024
+site:europa.eu filetype:pdf "cybersecurity" "threat landscape"
+```
+
+**Scenario 4 — Exposed infrastructure**
+
+```
+# Open directory listings
+intitle:"index of /" inurl:[target.com]
+
+# Exposed configuration files
+site:[target.com] ext:env | ext:cfg | ext:ini
+
+# Public cloud storage
+site:s3.amazonaws.com "[company]"
+site:storage.googleapis.com "[company]"
+site:blob.core.windows.net "[company]"
+
+# Exposed camera interfaces
+intitle:"webcam" | intitle:"IP camera" inurl:[target network range]
+```
+
+---
+
+## Google Services Beyond Search
+
+**Google Images — reverse image search**
+
+Go to [images.google.com](https://images.google.com), click the camera icon. Upload an image or paste a URL. Use cases: verify photo authenticity, find original source, identify people or locations, discover profiles associated with an image.
+
+For EXIF metadata extraction, download the original image from the earliest indexed source and run `exiftool image.jpg` locally.
+
+**Google Maps and Street View**
+
+Right-click any point on the map to get coordinates. Switch to Street View for ground-level reconnaissance. Check the capture date (shown bottom-left) — historical imagery can reveal changes over time. Google Earth Pro (free desktop app) provides historical satellite imagery for the same location at different dates.
+
+**Google Scholar**
+
+Use `author:"Name Surname"` to find publications by a specific person. Use `site:scholar.google.com` combined with institution names to find affiliated researchers. Useful for building profiles of academics, technical experts, or identifying patent holders.
+
+**Google Patents — [patents.google.com](https://patents.google.com)**
+
+Search by company name, inventor, or technology keyword. Reveals R&D direction, identifies key engineers, and maps relationships between organizations through co-inventors and assignees.
+
+**Google Trends — [trends.google.com](https://trends.google.com)**
+
+Compare search interest for multiple terms over time and by region. Useful for tracking public attention around events, individuals, or organizations. Spikes in interest often correlate with news events.
+
+**Google Alerts — [google.com/alerts](https://google.com/alerts)**
+
+Set up passive monitoring using the same operator syntax as search queries. Alerts fire when new content matching your query is indexed. Use cases: brand monitoring, tracking mentions of a person or organization, early warning on threat actor TTPs appearing in public reporting.
+
+**YouTube**
+
+Search with filters (date, type, duration). Transcripts are searchable — use `site:youtube.com "keyword"` to surface videos where the term appears in auto-generated captions. Geolocate content using visual clues, description text, or the location tag if set.
+
+---
+
+## Ethics and Legal Boundaries
+
+Google dorking and OSINT techniques operate on publicly accessible information. The following boundaries apply:
+
+- **Authorized use only:** Do not use these techniques to access information on systems you do not own or have explicit permission to test
+- **No automation against Google ToS:** Tools that mass-automate dork queries violate Google's Terms of Service — use manual queries or rate-limited tooling
+- **Privacy:** Finding personal information about private individuals, even if technically public, may violate privacy laws (GDPR, CCPA) depending on jurisdiction and purpose
+- **Intent matters:** Reconnaissance for defensive purposes (your own organization's exposure) is legitimate. Using the same techniques to target others without authorization is not
+
+For a full discussion of OSINT ethics and legal frameworks, see [TUTORIAL/1_Introduction_Ethics.md](TUTORIAL/1_Introduction_Ethics.md).
+
+---
+
+## Contributing
+
+Open an issue to suggest new dorks, scenarios, or corrections. To contribute directly, fork the repo, make changes on a descriptive branch, and open a pull request.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full process.
+
+---
+
+License: [MIT](LICENSE)

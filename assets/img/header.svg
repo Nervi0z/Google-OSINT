@@ -1,0 +1,257 @@
+<svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" width="900" height="240">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020810"/><stop offset="100%" stop-color="#040c1a"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="scanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow-title">
+      <feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-soft">
+      <feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="clip"><rect width="900" height="240"/></clipPath>
+  </defs>
+
+  <style>
+    .grid{stroke:#0a1628;stroke-width:.5;fill:none}
+    .corner{stroke:#7C3AED;stroke-width:1.5;fill:none}
+    .c1{stroke-dasharray:22;stroke-dashoffset:22;animation:dc .35s ease forwards .05s}
+    .c2{stroke-dasharray:22;stroke-dashoffset:22;animation:dc .35s ease forwards .15s}
+    .c3{stroke-dasharray:22;stroke-dashoffset:22;animation:dc .35s ease forwards .25s}
+    .c4{stroke-dasharray:22;stroke-dashoffset:22;animation:dc .35s ease forwards .35s}
+    .topline{stroke-dasharray:900;stroke-dashoffset:900;animation:dl 1s ease forwards .4s}
+    .scan{animation:scan 4s linear infinite 2s}
+
+    /* search bar typing animation */
+    .searchbar{opacity:0;animation:fi .3s ease forwards .55s}
+    .searchtext{font-family:'JetBrains Mono','Courier New',monospace;font-size:11px;fill:#E6EDF3}
+    .cursor-type{animation:blink .7s step-end infinite .55s}
+
+    /* dork query types in one after another */
+    .q0{opacity:0;animation:fi .2s ease forwards .6s}
+    .q1{opacity:0;animation:fi .2s ease forwards .75s}
+    .q2{opacity:0;animation:fi .2s ease forwards .9s}
+    .q3{opacity:0;animation:fi .2s ease forwards 1.05s}
+    .q4{opacity:0;animation:fi .2s ease forwards 1.2s}
+    .q5{opacity:0;animation:fi .2s ease forwards 1.35s}
+    .q6{opacity:0;animation:fi .2s ease forwards 1.5s}
+
+    /* result rows pop in */
+    .r0{opacity:0;animation:rp .25s ease forwards 1.6s}
+    .r1{opacity:0;animation:rp .25s ease forwards 1.8s}
+    .r2{opacity:0;animation:rp .25s ease forwards 2.0s}
+    .r3{opacity:0;animation:rp .25s ease forwards 2.2s}
+
+    /* title */
+    .title{font-family:'JetBrains Mono','Courier New',monospace;font-weight:700;font-size:34px;fill:url(#titleGrad);filter:url(#glow-title);opacity:0;animation:fi .6s ease forwards 1.5s}
+    .sub{font-family:'JetBrains Mono','Courier New',monospace;font-size:11px;fill:#94A3B8;opacity:0;animation:fi .5s ease forwards 1.75s}
+
+    /* tags */
+    .tag{opacity:0}
+    .tg1{animation:tp .3s ease forwards 2.0s}
+    .tg2{animation:tp .3s ease forwards 2.15s}
+    .tg3{animation:tp .3s ease forwards 2.3s}
+    .tg4{animation:tp .3s ease forwards 2.45s}
+    .tg5{animation:tp .3s ease forwards 2.6s}
+
+    /* right panel */
+    .rpanel{opacity:0;animation:fi .5s ease forwards 2.7s}
+    .rpulse{animation:rpulse 3s ease-in-out infinite 3s}
+
+    /* particles */
+    .pt{animation:fl 3.5s ease-in-out infinite;opacity:.45}
+    .p1{animation-delay:0s}.p2{animation-delay:.8s}.p3{animation-delay:1.6s}
+    .p4{animation-delay:2.4s}.p5{animation-delay:.4s}.p6{animation-delay:1.2s}
+
+    @keyframes dc{to{stroke-dashoffset:0}}
+    @keyframes dl{to{stroke-dashoffset:0}}
+    @keyframes fi{to{opacity:1}}
+    @keyframes rp{0%{opacity:0;transform:translateX(-6px)}100%{opacity:1;transform:translateX(0)}}
+    @keyframes tp{0%{opacity:0;transform:translateY(5px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes scan{0%{transform:translateY(-40px)}100%{transform:translateY(280px)}}
+    @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+    @keyframes rpulse{0%,100%{opacity:.7}50%{opacity:1}}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+  </style>
+
+  <g clip-path="url(#clip)">
+    <rect width="900" height="240" fill="url(#bg)"/>
+
+    <!-- grid -->
+    <line class="grid" x1="0" y1="30"  x2="900" y2="30"/>
+    <line class="grid" x1="0" y1="60"  x2="900" y2="60"/>
+    <line class="grid" x1="0" y1="90"  x2="900" y2="90"/>
+    <line class="grid" x1="0" y1="120" x2="900" y2="120"/>
+    <line class="grid" x1="0" y1="150" x2="900" y2="150"/>
+    <line class="grid" x1="0" y1="180" x2="900" y2="180"/>
+    <line class="grid" x1="0" y1="210" x2="900" y2="210"/>
+    <line class="grid" x1="90"  y1="0" x2="90"  y2="240"/>
+    <line class="grid" x1="180" y1="0" x2="180" y2="240"/>
+    <line class="grid" x1="270" y1="0" x2="270" y2="240"/>
+    <line class="grid" x1="360" y1="0" x2="360" y2="240"/>
+    <line class="grid" x1="450" y1="0" x2="450" y2="240"/>
+    <line class="grid" x1="540" y1="0" x2="540" y2="240"/>
+    <line class="grid" x1="630" y1="0" x2="630" y2="240"/>
+    <line class="grid" x1="720" y1="0" x2="720" y2="240"/>
+    <line class="grid" x1="810" y1="0" x2="810" y2="240"/>
+
+    <!-- scan -->
+    <rect class="scan" x="0" y="0" width="900" height="35" fill="url(#scanGrad)"/>
+
+    <!-- top accent -->
+    <line class="topline" x1="22" y1="9" x2="878" y2="9" stroke="url(#accentGrad)" stroke-width="1.5" fill="none"/>
+
+    <!-- corners -->
+    <path class="corner c1" d="M22 32 L22 20 L34 20"/>
+    <path class="corner c2" d="M878 32 L878 20 L866 20"/>
+    <path class="corner c3" d="M22 208 L22 220 L34 220"/>
+    <path class="corner c4" d="M878 208 L878 220 L866 220"/>
+
+    <!-- particles left -->
+    <circle class="pt p1" cx="12" cy="55"  r="1.5" fill="#7C3AED"/>
+    <circle class="pt p2" cx="8"  cy="100" r="1"   fill="#06B6D4"/>
+    <circle class="pt p3" cx="15" cy="148" r="1.5" fill="#7C3AED"/>
+    <circle class="pt p4" cx="7"  cy="192" r="1"   fill="#06B6D4"/>
+    <circle class="pt p5" cx="18" cy="76"  r="1"   fill="#06B6D4"/>
+    <circle class="pt p6" cx="11" cy="170" r="1.5" fill="#7C3AED"/>
+    <!-- particles right -->
+    <circle class="pt p2" cx="888" cy="50"  r="1.5" fill="#7C3AED"/>
+    <circle class="pt p3" cx="892" cy="95"  r="1"   fill="#06B6D4"/>
+    <circle class="pt p1" cx="885" cy="145" r="1.5" fill="#7C3AED"/>
+    <circle class="pt p4" cx="893" cy="190" r="1"   fill="#06B6D4"/>
+    <circle class="pt p6" cx="882" cy="72"  r="1"   fill="#06B6D4"/>
+    <circle class="pt p5" cx="889" cy="168" r="1.5" fill="#7C3AED"/>
+
+    <!-- ══ LEFT PANEL: search terminal ══ -->
+
+    <!-- search bar frame -->
+    <g class="searchbar">
+      <rect x="40" y="34" width="580" height="20" rx="3" fill="#060f1e" stroke="#1a2a4a" stroke-width="1"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#7C3AED" x="50" y="48">G›</text>
+    </g>
+
+    <!-- dork query building up character by character (simulated with segments) -->
+    <text class="q0 searchtext" x="68" y="48">site:</text>
+    <text class="q1 searchtext" x="103" y="48" fill="#06B6D4">target.com</text>
+    <text class="q2 searchtext" x="176" y="48"> filetype:</text>
+    <text class="q3 searchtext" x="237" y="48" fill="#EAB308">pdf</text>
+    <text class="q4 searchtext" x="260" y="48"> intitle:</text>
+    <text class="q5 searchtext" x="313" y="48" fill="#22C55E">"confidential"</text>
+    <text class="q6 searchtext" x="414" y="48" fill="#94A3B8"> -public</text>
+    <rect class="cursor-type" x="466" y="37" width="6" height="12" fill="#7C3AED" opacity=".8"/>
+
+    <!-- divider -->
+    <line x1="40" y1="60" x2="620" y2="60" stroke="#0d1f3a" stroke-width=".8" opacity="0" style="animation:fi .2s ease forwards 1.55s"/>
+
+    <!-- result rows -->
+    <g class="r0">
+      <circle cx="50" cy="74" r="3" fill="#22C55E" opacity=".7"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4" x="60" y="77">target.com/reports/Q3-2024.pdf</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#555" x="60" y="88">Confidential Internal Report · 847KB · Indexed 3 days ago</text>
+    </g>
+    <g class="r1">
+      <circle cx="50" cy="100" r="3" fill="#22C55E" opacity=".7"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4" x="60" y="103">target.com/docs/strategy-2025.pdf</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#555" x="60" y="114">Confidential · Strategic Planning Document · 1.2MB</text>
+    </g>
+    <g class="r2">
+      <circle cx="50" cy="126" r="3" fill="#EAB308" opacity=".7"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4" x="60" y="129">cdn.target.com/internal/staff-directory.pdf</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#555" x="60" y="140">Staff Directory · Confidential · HR Department</text>
+    </g>
+    <g class="r3">
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#7C3AED" x="50" y="156">// 3 results · operator: site: + filetype: + intitle: · Google Dorking</text>
+    </g>
+
+    <!-- divider -->
+    <line x1="40" y1="163" x2="620" y2="163" stroke="#0d1f3a" stroke-width=".8" opacity="0" style="animation:fi .2s ease forwards 1.55s"/>
+
+    <!-- main title -->
+    <text class="title" x="40" y="196">google-osint</text>
+
+    <!-- subtitle -->
+    <text class="sub" x="42" y="213">operators · dorking · services · geoint · scenarios · cheatsheet</text>
+
+    <!-- tags -->
+    <g class="tag tg1">
+      <rect x="40" y="222" width="62" height="16" rx="3" fill="none" stroke="#7C3AED" stroke-width="1"/>
+      <circle cx="50" cy="230" r="3" fill="#7C3AED"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" x="57" y="234" fill="#E6EDF3">OSINT</text>
+    </g>
+    <g class="tag tg2">
+      <rect x="110" y="222" width="76" height="16" rx="3" fill="none" stroke="#06B6D4" stroke-width="1"/>
+      <circle cx="120" cy="230" r="3" fill="#06B6D4"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" x="127" y="234" fill="#E6EDF3">Dorking</text>
+    </g>
+    <g class="tag tg3">
+      <rect x="194" y="222" width="60" height="16" rx="3" fill="none" stroke="#EAB308" stroke-width="1"/>
+      <circle cx="204" cy="230" r="3" fill="#EAB308"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" x="211" y="234" fill="#E6EDF3">GEOINT</text>
+    </g>
+    <g class="tag tg4">
+      <rect x="262" y="222" width="80" height="16" rx="3" fill="none" stroke="#22C55E" stroke-width="1"/>
+      <circle cx="272" cy="230" r="3" fill="#22C55E"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" x="279" y="234" fill="#E6EDF3">Recon</text>
+    </g>
+    <g class="tag tg5">
+      <rect x="350" y="222" width="76" height="16" rx="3" fill="none" stroke="#7C3AED" stroke-width="1"/>
+      <circle cx="360" cy="230" r="3" fill="#7C3AED"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" x="367" y="234" fill="#E6EDF3">Blue Team</text>
+    </g>
+
+    <!-- ══ RIGHT PANEL ══ -->
+    <g class="rpanel rpulse">
+      <rect x="688" y="36" width="182" height="162" rx="4" fill="#060f1e" stroke="#7C3AED" stroke-width="1"/>
+      <!-- header -->
+      <rect x="688" y="36" width="182" height="22" rx="4" fill="#0d1f3a"/>
+      <rect x="688" y="48" width="182" height="10" fill="#0d1f3a"/>
+      <circle cx="703" cy="47" r="4" fill="#7C3AED"/>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#E6EDF3" x="713" y="51">OPERATOR INDEX</text>
+
+      <line x1="698" y1="66" x2="860" y2="66" stroke="#0a1628" stroke-width="1"/>
+
+      <!-- operators list -->
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4"  x="698" y="80">site:</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#94A3B8" x="728" y="80">limit to domain</text>
+
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4"  x="698" y="93">filetype:</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#94A3B8" x="746" y="93">specific ext</text>
+
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4"  x="698" y="106">intitle:</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#94A3B8" x="738" y="106">page title</text>
+
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4"  x="698" y="119">inurl:</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#94A3B8" x="728" y="119">in URL path</text>
+
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4"  x="698" y="132">intext:</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#94A3B8" x="734" y="132">body text</text>
+
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4"  x="698" y="145">cache:</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#94A3B8" x="730" y="145">cached version</text>
+
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="9px" fill="#06B6D4"  x="698" y="158">related:</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#94A3B8" x="740" y="158">similar sites</text>
+
+      <line x1="698" y1="166" x2="860" y2="166" stroke="#0a1628" stroke-width="1"/>
+
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#94A3B8" x="698" y="177">services covered</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#06B6D4" x="698" y="188">Search · Maps · Images</text>
+      <text font-family="'JetBrains Mono','Courier New',monospace" font-size="8px" fill="#06B6D4" x="698" y="197">Scholar · Trends · Alerts</text>
+    </g>
+
+  </g>
+</svg>

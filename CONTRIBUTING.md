@@ -1,32 +1,45 @@
-# Cómo Contribuir a [Nombre de tu Repositorio]
+# Contributing
 
-¡Gracias por tu interés en contribuir! Toda ayuda es bienvenida, ya sea reportando errores, sugiriendo mejoras, corrigiendo erratas o añadiendo nuevos ejemplos.
+Contributions are welcome: new dorks, corrected operators, additional scenarios, broken links, and outdated content.
 
-## Reportando Errores (Issues)
+---
 
-* Antes de crear un issue, por favor revisa si ya existe uno similar.
-* Describe el problema claramente: qué esperabas que sucediera y qué sucedió realmente.
-* Incluye pasos para reproducir el error si es posible.
-* Utiliza la pestaña "Issues" del repositorio.
+## Ways to contribute
 
-## Sugiriendo Mejoras
+- **New dork:** Open an [issue](https://github.com/Nervi0z/Google-OSINT/issues/new?template=add-dork.md) with the query, its use case, and a note on what it surfaces
+- **New scenario:** Open an issue to discuss scope before writing
+- **Fix:** Broken link, outdated operator, incorrect example — submit a pull request directly
+- **Typos and formatting:** Small fixes as pull requests without an issue
 
-* Si tienes ideas para nuevo contenido, ejemplos o mejoras estructurales, ¡compártelas!
-* Abre un "Issue" describiendo tu sugerencia y por qué crees que sería útil.
+---
 
-## Enviando Cambios (Pull Requests - PRs)
+## Submitting a pull request
 
-1.  **Haz un Fork:** Crea una copia ("fork") del repositorio en tu propia cuenta de GitHub.
-2.  **Crea una Rama:** En tu fork, crea una nueva rama descriptiva para tus cambios (ej: `fix/typo-in-operators` o `feature/add-youtube-section`).
-3.  **Haz tus Cambios:** Edita los archivos necesarios en tu rama.
-4.  **Haz Commit:** Guarda tus cambios con mensajes de commit claros.
-5.  **Abre un Pull Request:** Ve a tu fork en GitHub y abre un "Pull Request" hacia la rama `main` (o `master`) del repositorio original. Describe tus cambios en el PR.
+1. Fork the repository
+2. Clone your fork:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/Google-OSINT.git
+   ```
+3. Create a descriptive branch:
+   ```bash
+   git checkout -b add-cloud-storage-dorks
+   git checkout -b fix-filetype-operator-example
+   ```
+4. Edit `README.md` or the relevant file in `TUTORIAL/`
+5. Commit with [Conventional Commits](https://www.conventionalcommits.org/) prefixes:
+   ```bash
+   git commit -m "feat: add cloud storage exposure dorks"
+   git commit -m "fix: correct filetype operator syntax example"
+   git commit -m "docs: expand company profiling scenario"
+   ```
+6. Push and open a pull request against `main`
 
-## Guía de Estilo (Básica)
+---
 
-* Mantén un lenguaje claro y conciso.
-* Usa el formato Markdown de forma consistente (encabezados, listas, bloques de código).
-* Si añades nuevos "dorks" o ejemplos, asegúrate de que funcionen y explica su propósito.
-* Sé respetuoso en todas las comunicaciones.
+## Quality criteria
 
-¡Gracias de nuevo por tu colaboración!
+- Dorks must be tested and functional — no theoretical queries
+- Use cases must be specific to a defensive or legitimate investigative context
+- No emojis, no generic filler language
+- All examples must use placeholder values like `[target.com]`, not real domains
+- Respect the ethics section — do not add content that facilitates unauthorized access

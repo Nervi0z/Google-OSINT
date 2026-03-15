@@ -1,117 +1,169 @@
-# 2. Dominando los Operadores de Búsqueda de Google (Google Dorking)
+# 2 — Google Operators & Dorking
 
-Los operadores de búsqueda de Google (a menudo llamados "dorks") son comandos especiales que puedes añadir a tus consultas para filtrar y refinar los resultados de manera increíblemente precisa. Dominarlos es esencial para OSINT efectivo con Google.
+Search operators are special commands that filter Google results with precision. Combining them — "dorking" — lets you surface specific files, directories, and pages that standard searches miss.
 
-## Operadores Fundamentales
-
-Estos son los pilares básicos que usarás constantemente.
+## Core Operators
 
 ### `site:`
-* **Qué hace:** Limita la búsqueda a un sitio web o dominio específico.
-* **Sintaxis:** `termino site:ejemplo.com`
-* **Ejemplos:**
-    * `informe anual site:empresa-ejemplo.com` (Busca "informe anual" solo en ese dominio)
-    * `contacto site:blog.ejemplo.com` (Busca en un subdominio específico)
-    * `site:gob.es` (Explora páginas indexadas de ese dominio)
+Restricts results to a specific domain or subdomain.
 
-### `filetype:` o `ext:`
-* **Qué hace:** Busca tipos de archivo específicos.
-* **Sintaxis:** `termino filetype:pdf` o `termino ext:pdf`
-* **Tipos comunes:** `pdf`, `docx`, `xlsx`, `pptx`, `txt`, `csv`, `log`, `sql`, `bak`, `config`, `xml`, `json`.
-* **Ejemplos:**
-    * `presupuesto filetype:xlsx` (Busca hojas de cálculo con la palabra "presupuesto")
-    * `manual usuario filetype:pdf site:producto-ejemplo.com` (Busca manuales PDF en un sitio específico)
+```
+site:example.com
+site:blog.example.com
+informe anual site:empresa.es
+```
 
-### `""` (Comillas Exactas)
-* **Qué hace:** Busca una frase exacta.
-* **Sintaxis:** `"frase exacta"`
-* **Ejemplo:** `"informe de inteligencia de fuentes abiertas"` (Busca esa secuencia exacta de palabras)
+### `filetype:` / `ext:`
+Finds specific file types. Both work identically.
 
-### `*` (Comodín)
-* **Qué hace:** Actúa como un marcador de posición para una o más palabras desconocidas dentro de una frase exacta.
-* **Sintaxis:** `"frase con * comodín"`
-* **Ejemplo:** `"el * más grande del mundo"`
+```
+filetype:pdf "annual report"
+ext:xlsx budget 2024
+filetype:sql site:example.com
+```
 
-### `-` (Exclusión)
-* **Qué hace:** Excluye resultados que contengan un término específico.
-* **Sintaxis:** `termino -palabra_a_excluir`
-* **Ejemplo:** `jaguar velocidad -coche` (Busca sobre el animal jaguar, excluyendo resultados sobre el coche)
+Common extensions for OSINT: `pdf`, `docx`, `xlsx`, `pptx`, `txt`, `csv`, `log`, `sql`, `bak`, `config`, `xml`, `json`, `env`, `cfg`
 
-### `OR` o `|` (Alternativa)
-* **Qué hace:** Busca resultados que contengan el término A *o* el término B.
-* **Sintaxis:** `terminoA OR terminoB` o `terminoA | terminoB`
-* **Ejemplo:** `elecciones presidenciales | votaciones generales`
+### `"exact phrase"`
+Matches a literal string — useful for finding specific document titles, error messages, or quoted text.
 
-### `AND` (Implícito)
-* **Nota:** Generalmente, Google trata los espacios entre palabras como un operador `AND` (buscar resultados que contengan todas las palabras), por lo que raramente necesitas escribir `AND` explícitamente.
+```
+"internal use only"
+"not for public distribution"
+"db_password ="
+```
 
-## Operadores de Ubicación de Términos
+### `-` (exclusion)
+Removes results containing a term.
 
-Estos operadores buscan tus términos en partes específicas de una página web.
+```
+site:example.com -www
+jaguar speed -car
+"Python" programming -snake
+```
+
+### `*` (wildcard)
+Placeholder for one or more unknown words within a quoted phrase.
+
+```
+"the * most wanted"
+"CEO of * announced"
+```
+
+### `OR` / `|`
+Either term A or term B — useful when targets use multiple naming conventions.
+
+```
+"Chief Information Security Officer" OR CISO
+filetype:pdf | filetype:docx site:example.com
+```
+
+## Location Operators
 
 ### `intitle:`
-* **Qué hace:** Busca el término especificado solo en el título de la página web (lo que ves en la pestaña del navegador).
-* **Sintaxis:** `intitle:termino`
-* **Ejemplo:** `intitle:"panel de administración"`
+Term must appear in the page title (browser tab text).
+
+```
+intitle:"index of /"
+intitle:"login panel"
+intitle:"admin" inurl:example.com
+```
 
 ### `inurl:`
-* **Qué hace:** Busca el término especificado dentro de la URL de la página.
-* **Sintaxis:** `inurl:termino`
-* **Ejemplo:** `inurl:login` o `inurl:admin.php`
+Term must appear in the URL.
+
+```
+inurl:admin
+inurl:wp-login.php
+inurl:".env" site:github.com
+```
 
 ### `intext:`
-* **Qué hace:** Busca el término especificado solo en el cuerpo principal del texto de la página (ignora título, URL, enlaces).
-* **Sintaxis:** `intext:termino`
-* **Ejemplo:** `intext:"número de seguridad social"` (¡Usar con ética!)
+Term must appear in the page body — ignores title, URL, and links.
 
-### Variantes `allintitle:`, `allinurl:`, `allintext:`
-* **Qué hacen:** Requieren que *todas* las palabras siguientes aparezcan en el título, URL o texto, respectivamente.
-* **Ejemplo:** `allintitle:panel administración login`
+```
+intext:"db_password"
+intext:"BEGIN RSA PRIVATE KEY"
+intext:"mysql_connect"
+```
 
-## Operadores Relacionados y de Caché
+### `allintitle:` / `allinurl:` / `allintext:`
+All words following the operator must appear in their respective location.
+
+```
+allintitle:admin panel login
+allinurl:wp-admin upload
+```
+
+## Discovery Operators
 
 ### `related:`
-* **Qué hace:** Encuentra sitios web similares o relacionados a una URL dada.
-* **Sintaxis:** `related:sitioejemplo.com`
-* **Ejemplo:** `related:nytimes.com` (Encuentra otros sitios de noticias importantes)
+Finds websites similar to a given URL — useful for mapping an organization's web ecosystem.
+
+```
+related:target.com
+related:reuters.com
+```
 
 ### `cache:`
-* **Qué hace:** Muestra la versión de una página web tal como Google la guardó (cacheó) la última vez que la visitó. Útil si la página original está caída o ha cambiado.
-* **Sintaxis:** `cache:sitioejemplo.com/pagina`
-* **Ejemplo:** `cache:wikipedia.org/wiki/OSINT`
+Shows Google's cached snapshot of a page — useful when a page has been taken down or modified.
 
-## Combinando Operadores: El Arte del Google Dorking
+```
+cache:example.com/removed-page
+```
 
-La verdadera potencia surge al combinar múltiples operadores en una sola consulta. Esto te permite crear filtros extremadamente específicos.
+## Combining Operators: Dorking
 
-* **Ejemplo 1: Encontrar paneles de login**
-    ```
-    site:[empresa-objetivo.com](https://www.google.com/search?q=empresa-objetivo.com) intitle:"login" | intitle:"sign in" | inurl:login | inurl:admin
-    ```
-* **Ejemplo 2: Buscar documentos específicos con términos clave**
-    ```
-    site:gobierno-ejemplo.org filetype:pdf "confidencial" | "interno"
-    ```
-* **Ejemplo 3: Encontrar listados de directorios abiertos (potencialmente inseguros)**
-    ```
-    intitle:"index of /" "parent directory"
-    ```
-    ```
-    intitle:"index of /" + "server at"
-    ```
-* **Ejemplo 4: Buscar archivos de configuración o backups**
-    ```
-    filetype:sql | filetype:bak | filetype:config "password" | "contraseña" | "db_user"
-    ```
+The power comes from combining operators. Build queries from general to specific, adding operators one at a time.
 
-* **¡Sé creativo!** Experimenta combinando `site:`, `filetype:`, `intitle:`, `inurl:` y términos exactos para afinar tus búsquedas OSINT.
+**Open directory listings:**
+```
+intitle:"index of /" "parent directory"
+intitle:"index of /" + "server at"
+site:target.com intitle:"index of /"
+```
 
-## Buenas Prácticas y Advertencias
+**Exposed login panels:**
+```
+site:target.com intitle:"login" | intitle:"sign in" | inurl:login | inurl:admin
+site:target.com inurl:wp-admin | inurl:administrator
+```
 
-* **Empieza Simple:** No uses demasiados operadores al principio. Empieza con uno o dos y añade más gradualmente si es necesario.
-* **Google te Observa:** Consultas muy complejas o muy rápidas pueden activar CAPTCHAs o bloqueos temporales. Sé paciente.
-* **Ética Siempre:** Recuerda la sección de ética. Usa estos operadores para fines legítimos, educativos o defensivos. **No** uses dorks para buscar activamente vulnerabilidades en sistemas ajenos sin permiso.
-* **ToS:** Evita herramientas que automaticen masivamente las búsquedas de dorks, ya que pueden violar los Términos de Servicio de Google.
+**Sensitive documents:**
+```
+site:target.com filetype:pdf "confidential" | "internal use only"
+site:target.com filetype:xlsx | filetype:csv "password" | "credentials"
+```
+
+**Exposed config and backup files:**
+```
+site:target.com ext:sql | ext:bak | ext:config
+filetype:sql intext:"INSERT INTO" intext:"password"
+site:target.com filetype:env | filetype:cfg
+```
+
+**Exposed credentials:**
+```
+site:pastebin.com "target.com" password | credential | token
+site:github.com "target.com" password | secret | api_key
+intext:"BEGIN RSA PRIVATE KEY" site:github.com
+```
+
+**Cloud storage:**
+```
+site:s3.amazonaws.com "target"
+site:storage.googleapis.com "target"
+site:blob.core.windows.net "target"
+```
+
+## Practical Tips
+
+Start simple — one or two operators first. Add more if results are too broad. Google may trigger CAPTCHAs on complex queries in rapid succession — slow down and use manual queries.
+
+Not all operators work equally well on all queries. `filetype:` is reliable. `cache:` has been deprecated in some regions. Test what works in your context.
+
+For OSINT on your own organization, run these queries regularly — your exposure changes as new content gets indexed.
 
 ---
-*En el siguiente módulo, exploraremos otros servicios de Google más allá del buscador principal.*
+
+Continue to [3 — Google Services Beyond Search](3_Google_Services_Beyond_Search.md)
